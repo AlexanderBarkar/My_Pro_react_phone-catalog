@@ -4,7 +4,7 @@ import './CartPage.scss';
 import { getBaseUrl } from '../../../utils';
 
 export const CartPage = () => {
-  const { cart, removeFromCart, updateQuantity } = useCart();
+  const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
 
   const totalPrice = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -138,7 +138,15 @@ export const CartPage = () => {
             Total for {cart.reduce((sum, item) => sum + item.quantity, 0)} items
           </p>
           <div className="cart__divider" />
-          <button className="cart__checkout">Checkout</button>
+          <button
+            className="cart__checkout"
+            onClick={() => {
+              alert('Checkout is coming soon...');
+              clearCart();
+            }}
+          >
+            Checkout
+          </button>
         </div>
       </div>
     </section>
