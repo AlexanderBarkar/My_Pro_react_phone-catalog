@@ -49,18 +49,12 @@ export const CartPage = () => {
             const productLink = `/${item.category || 'phones'}/${item.id}`;
 
             return (
-              <div
-                key={itemKey}
-                className="cart__item"
-              >
+              <div key={itemKey} className="cart__item">
                 <button
                   className="cart__item-close"
                   onClick={() => removeFromCart(itemKey)}
                 >
-                  <img
-                    src={`${getBaseUrl()}icons/close.svg`}
-                    alt="close"
-                  />
+                  <img src={`${getBaseUrl()}icons/close.svg`} alt="close" />
                 </button>
 
                 <Link to={productLink} className="cart__item-link">
@@ -76,10 +70,7 @@ export const CartPage = () => {
                     className="cart__item-close--mobile"
                     onClick={() => removeFromCart(itemKey)}
                   >
-                    <img
-                      src={`${getBaseUrl()}icons/close.svg`}
-                      alt="close"
-                    />
+                    <img src={`${getBaseUrl()}icons/close.svg`} alt="close" />
                   </button>
                   <Link to={productLink} className="cart__item-link">
                     <img
@@ -93,7 +84,10 @@ export const CartPage = () => {
                   </Link>
                 </div>
 
-                <Link to={productLink} className="cart__item-link cart__item-link--desktop">
+                <Link
+                  to={productLink}
+                  className="cart__item-link cart__item-link--desktop"
+                >
                   <p className="cart__item-name cart__item-name--desktop">
                     {item.name}
                   </p>
@@ -103,9 +97,7 @@ export const CartPage = () => {
                   <div className="cart__item-quantity">
                     <button
                       className="cart__item-qty-btn"
-                      onClick={() =>
-                        updateQuantity(itemKey, item.quantity - 1)
-                      }
+                      onClick={() => updateQuantity(itemKey, item.quantity - 1)}
                       disabled={item.quantity === 1}
                     >
                       -
@@ -115,9 +107,7 @@ export const CartPage = () => {
                     </span>
                     <button
                       className="cart__item-qty-btn"
-                      onClick={() =>
-                        updateQuantity(itemKey, item.quantity + 1)
-                      }
+                      onClick={() => updateQuantity(itemKey, item.quantity + 1)}
                     >
                       +
                     </button>
